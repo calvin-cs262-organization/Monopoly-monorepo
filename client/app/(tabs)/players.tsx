@@ -11,7 +11,7 @@ import {
   View,
 } from 'react-native';
 
-const SERVER_URL = 'http://localhost:3000';
+import { SERVER_URL } from '../../config';
 
 interface Game { id: number; time: string; }
 interface PlayerGame { id: number; gameId: number; playerId: number; score: number; Game: Game; }
