@@ -174,4 +174,8 @@ app.delete('/Player/:id', async (req, res) => {
 
 app.get('/', (req, res) => res.send('Monopoly server running.'));
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+}
