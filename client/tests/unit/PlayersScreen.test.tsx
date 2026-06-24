@@ -2,8 +2,8 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react-native';
 import { http, HttpResponse } from 'msw';
-import { server } from '../__mocks__/msw/server';
-import PlayersScreen from '../app/(tabs)/players';
+import { server } from '../../__mocks__/msw/server';
+import PlayersScreen from '../../app/(tabs)/players';
 
 describe('PlayersScreen', () => {
   it('renders player list after loading', async () => {

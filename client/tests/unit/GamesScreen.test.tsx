@@ -2,8 +2,8 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react-native';
 import { http, HttpResponse } from 'msw';
-import { server } from '../__mocks__/msw/server';
-import GamesScreen from '../app/(tabs)/index';
+import { server } from '../../__mocks__/msw/server';
+import GamesScreen from '../../app/(tabs)/index';
 
 describe('GamesScreen', () => {
   it('renders a game card after loading', async () => {

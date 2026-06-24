@@ -1,8 +1,10 @@
 const preset = require('jest-expo/jest-preset');
 
 module.exports = {
+  rootDir: '../..',
   preset: 'jest-expo',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  testMatch: ['<rootDir>/tests/unit/**/*.test.[jt]s?(x)'],
+  setupFilesAfterEnv: ['<rootDir>/tests/unit/setup.ts'],
   moduleNameMapper: {
     ...preset.moduleNameMapper,
     '^../../config$': '<rootDir>/__mocks__/config.ts',
