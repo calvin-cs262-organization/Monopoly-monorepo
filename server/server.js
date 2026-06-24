@@ -18,8 +18,8 @@ app.use((req, res, next) => {
   next();
 });
 
-const supabaseUrl = 'https://clftouxlvxytggpdfirw.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsZnRvdXhsdnh5dGdncGRmaXJ3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODIzNjk5NSwiZXhwIjoyMDkzODEyOTk1fQ.OlxR3MHjRCMYlOaryCsQUK6TWxh0zGrq5XzICokfIHk';
+const supabaseUrl = process.env.SUPABASE_URL || 'https://clftouxlvxytggpdfirw.supabase.co';
+const supabaseKey = process.env.SUPABASE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsZnRvdXhsdnh5dGdncGRmaXJ3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODIzNjk5NSwiZXhwIjoyMDkzODEyOTk1fQ.OlxR3MHjRCMYlOaryCsQUK6TWxh0zGrq5XzICokfIHk';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // --- Games ---

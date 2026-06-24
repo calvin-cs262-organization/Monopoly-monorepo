@@ -1,10 +1,14 @@
 'use strict';
 
+// Unit tests for the Express server. Supabase is fully mocked via
+// __mocks__/@supabase/supabase-js.js — no database or network required.
+// Run with: npm test
+
 const request = require('supertest');
 const { mockFrom, mockChain } = require('@supabase/supabase-js');
 
 // server.js must be required AFTER the mock is in place
-const app = require('../server');
+const app = require('../../server');
 
 beforeEach(() => jest.clearAllMocks());
 
