@@ -13,10 +13,10 @@
 // sits adjacent to node_modules. Unmock it so we hit the real local DB.
 jest.unmock('@supabase/supabase-js');
 
-const request = require('supertest');
+import request from 'supertest';
 
-const { seedSmall } = require('./fixtures');
-const app = require('../../server');
+import { seedSmall } from './fixtures';
+import app from '../../server';
 
 beforeAll(() => seedSmall());
 
@@ -36,7 +36,7 @@ describe('GET /Players', () => {
   it('returns all players ordered by name', async () => {
     const res = await request(app).get('/Players');
     expect(res.status).toBe(200);
-    const names = res.body.map((p) => p.name);
+    const names = res.body.map((p: { name: string }) => p.name);
     expect(names).toEqual([...names].sort());
     expect(names).toContain('Alice');
     expect(names).toContain('Bob');
@@ -85,7 +85,7 @@ describe('GET /Games', () => {
     const res = await request(app).get('/Games');
     expect(res.status).toBe(200);
     expect(res.body.length).toBeGreaterThanOrEqual(3);
-    const times = res.body.map((g) => g.time);
+    const times = res.body.map((g: { time: string }) => g.time);
     expect(times).toEqual([...times].sort().reverse());
   });
 });

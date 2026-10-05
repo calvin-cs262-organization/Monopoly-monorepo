@@ -26,7 +26,7 @@ module.exports = async function globalSetup() {
   // Step 3: Start the Express server as a child process on E2E_PORT so the
   // client components can make real HTTP calls. We spawn instead of require()
   // to avoid cross-package Babel resolution issues between client and server.
-  const server = spawn('node', ['server.js'], {
+  const server = spawn('node', ['--import', 'tsx', 'server.ts'], {
     cwd: path.resolve(projectRoot, 'server'),
     env: {
       ...process.env,

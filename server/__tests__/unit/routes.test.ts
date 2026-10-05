@@ -4,11 +4,11 @@
 // __mocks__/@supabase/supabase-js.js — no database or network required.
 // Run with: npm test
 
-const request = require('supertest');
+import request from 'supertest';
 const { mockFrom, mockChain } = require('@supabase/supabase-js');
 
 // server.js must be required AFTER the mock is in place
-const app = require('../../server');
+import app from '../../server';
 
 beforeEach(() => jest.clearAllMocks());
 

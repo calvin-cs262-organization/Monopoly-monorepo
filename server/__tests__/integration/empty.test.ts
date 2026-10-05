@@ -2,10 +2,10 @@
 
 jest.unmock('@supabase/supabase-js');
 
-const request = require('supertest');
+import request from 'supertest';
 
-const { clearAll } = require('./fixtures');
-const app = require('../../server');
+import { clearAll } from './fixtures';
+import app from '../../server';
 
 beforeAll(() => clearAll());
 

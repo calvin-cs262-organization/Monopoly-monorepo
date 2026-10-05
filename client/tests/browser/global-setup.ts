@@ -20,7 +20,7 @@ export default async function globalSetup() {
   );
 
   // Step 3: Start the Express API server so the web app's fetch calls succeed.
-  const server = spawn('node', ['server.js'], {
+  const server = spawn('node', ['--import', 'tsx', 'server.ts'], {
     cwd: path.resolve(projectRoot, 'server'),
     env: {
       ...process.env,

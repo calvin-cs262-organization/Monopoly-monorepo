@@ -5,8 +5,8 @@
 // Runs once per Jest worker via setupFiles; subsequent test files skip the
 // execSync call because the env vars are already set.
 
-const { execSync } = require('child_process');
-const path = require('path');
+import { execSync } from 'child_process';
+import path from 'path';
 
 if (!process.env.SUPABASE_KEY) {
   try {

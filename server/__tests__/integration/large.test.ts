@@ -2,10 +2,10 @@
 
 jest.unmock('@supabase/supabase-js');
 
-const request = require('supertest');
+import request from 'supertest';
 
-const { seedLarge } = require('./fixtures');
-const app = require('../../server');
+import { seedLarge } from './fixtures';
+import app from '../../server';
 
 // seedLarge inserts 50 games and 200 players.
 // Distribution: player at index pi (ID = pi+1) plays in the 5 games where
@@ -26,7 +26,7 @@ describe('Large DB — GET /Games', () => {
 
   it('games are sorted newest first', async () => {
     const res = await request(app).get('/Games');
-    const times = res.body.map((g) => g.time);
+    const times = res.body.map((g: { time: string }) => g.time);
     expect(times).toEqual([...times].sort((a, b) => b.localeCompare(a)));
   });
 });
@@ -40,7 +40,7 @@ describe('Large DB — GET /Players', () => {
 
   it('players are sorted alphabetically by name', async () => {
     const res = await request(app).get('/Players');
-    const names = res.body.map((p) => p.name);
+    const names = res.body.map((p: { name: string }) => p.name);
     expect(names).toEqual([...names].sort());
   });
 
